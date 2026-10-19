@@ -42,7 +42,9 @@ public class PlayerControllerX : MonoBehaviour
         // Add force to player in direction of the focal point (and camera)
         float verticalInput = controls.Player.Move.ReadValue<Vector2>().y;
         float realSpeed = speed * Time.deltaTime;
-        if (controls.Player.Jump.IsPressed())
+
+
+        if (controls.Player.Jump.IsPressed() || controls.Player.Jump.WasPressedThisFrame())
         {
             realSpeed *= 2; // Double speed when jump button is pressed
             dustParticles.Play(); // Play dust particles when jump button is pressed
